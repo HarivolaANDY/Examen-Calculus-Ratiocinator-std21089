@@ -24,4 +24,15 @@ public class StatementTest {
         assertEquals("jenesaispas", CalculusRatiocinator.or(louGenereux, louGenereux));
         assertEquals("false", CalculusRatiocinator.or(louPauvre, louPauvre));
     }
+
+    @Test
+    public void StatementTest3() {
+        Statement louBeau = new Lie("Lou est beau");
+        Statement louPauvre = new Truth("Lou est pauvre");
+        Statement louGenereux = new GeneralStatement("Lou est généreux");
+
+        assertEquals("false", CalculusRatiocinator.implies(louBeau, louPauvre));
+        assertEquals("jenesaispas", CalculusRatiocinator.implies(louPauvre, louGenereux));
+        assertEquals("true", CalculusRatiocinator.implies(louPauvre, louBeau));
+    }
 }
